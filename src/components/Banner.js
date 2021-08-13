@@ -1,8 +1,6 @@
 import '../styles/Banner.css';
 import logo from '../assets/Logo.png';
 
-const month = new Date().getMonth()
-const isSpring = month >=2 && month <=5
 
 function Banner() {
     return <div className="lmj-banner">
