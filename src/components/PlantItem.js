@@ -14,7 +14,7 @@ function PlantItem ({id, name, cover, light, water, isSpecialOffer}) {
                     <CareScale careType='light' scaleValue={light} />
 
             </div>
-            {isSpecialOffer && <div className="lmj-sales">Offre spéciale</div>}
+            
         </li>
     )
 
