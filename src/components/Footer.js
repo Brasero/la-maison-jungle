@@ -7,6 +7,18 @@ function Footer() {
 
     const [inputValue, setInputValue] = useState('')
 
+    function checkMail() {
+        if(!inputValue.includes('@')) {
+            alert('Votre adresse mail ne contient pas le caractère "@", veuillez saisir une adresse mail valide.')
+            setInputValue('')
+        }
+
+    }
+
+    function handleInput(e) {
+        setInputValue(e.target.value)
+    }
+    
     return (
         <footer className="lmj-footer">
             <div className='lmj-footer-elem'>
@@ -16,18 +28,14 @@ function Footer() {
             <div className="lmj-footer-elem">
                 <input type="email" 
                     value={inputValue}
-                    onBlur={(e) => checkMail(e.target.value)}
-                    onChange={(e)=> setInputValue(e.target.value)} />
+                    onBlur={checkMail}
+                    onChange={handleInput} />
                     
             </div>
         </footer>
     )
 }
 
-function checkMail(mail) {
-    if(!mail.includes('@')) {
-        alert('Votre adresse mail ne contient pas le caractère "@", veuillez saisir une adresse mail valide.')
-    }
- }
+
 
 export default Footer

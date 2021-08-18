@@ -1,7 +1,7 @@
 import sun from '../assets/sun.svg'
 import water from '../assets/water.svg'
 
-function seeMore (type, quantite, img) {
+function seeMore (type, quantite) {
 
     const besoin = type === 'light' ? 'de lumière' : 'd\'arrosage'
 
@@ -21,7 +21,7 @@ function seeMore (type, quantite, img) {
             break;
     }
 
-    console.log(img)
+    
 
     return alert(`Cet plante a besoin de ${frequence} ${besoin}`)
 
@@ -36,7 +36,7 @@ function CareScale({scaleValue, careType}) {
 
         <div>
             {range.map((rangeElem) =>
-                scaleValue >= rangeElem ? <span key={rangeElem.toString()} onClick={() => seeMore(careType, scaleValue, scaleType)}>{ scaleType }</span>
+                scaleValue >= rangeElem ? <span key={rangeElem.toString()} onClick={() => seeMore(careType, scaleValue)}>{ scaleType }</span>
 
                 : null
             )}
