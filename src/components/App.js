@@ -9,10 +9,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Banner />
+      </header>
+
+      <body className="App-body">
         <Cart />
         <ShoppingList />
+      </body>
+      
+      <footer className="App-footer">
         <Footer />
-      </header>
+      </footer>
     </div>
   );
 }

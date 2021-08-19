@@ -21,7 +21,7 @@ function seeMore (type, quantite) {
             break;
     }
 
-    
+        
 
     return alert(`Cet plante a besoin de ${frequence} ${besoin}`)
 
