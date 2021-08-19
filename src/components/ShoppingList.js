@@ -1,25 +1,47 @@
 import { plantList } from '../datas/plantList'
 import '../styles/ShoppingList.css'
 import PlantItem from './PlantItem'
+import Categories from './Categories'
+import { useState } from 'react'
 
-function ShoppingList() {
-        const categories = plantList.reduce(
-            (acc, plant) => 
-                acc.includes(plant.category) ? acc : acc.concat(plant.category), 
-            []
-        )
+function ShoppingList({ cart, updateCart }) {
 
+        const [cat, setCat] = useState('')
+
+        function addToCart( name, price ) {
+
+            const isAlreadyIn = cart.find((plant) => plant.name === name )
+         
+            if(isAlreadyIn) {
+                const cartFilteredCurrentPlant = cart.filter(
+                    (plant) => plant.name !== name
+                )
+
+                updateCart([
+                    ...cartFilteredCurrentPlant,
+                    { name, price, amount: isAlreadyIn.amount + 1}
+                ])
+            }
+            else {
+                updateCart([ 
+                    ...cart, 
+                    { name, price, amount: 1 }
+                ])
+            }
+            
+        }
+
+        
         return (
             <div className="lmj-shopping-list">
-                    <ul>
-                                {categories.map((cat) => (
-                                    <li key={cat}>{cat}</li>
-                                ))}
-                    </ul>
+                    <Categories selectCat={cat} setCat={setCat} />
                     <ul className="lmj-plant-list">
-                                {plantList.map((plant) => (
+                                {plantList.map(({ id, cover, name, water, light, price  }) => (
 
-                                        <PlantItem {...plant} />
+                                    <div key={id}>
+                                        <PlantItem cover={cover} name={name} water={water} light={light} />
+                                        <button onClick={() => addToCart(name, price)}>Ajouter</button>
+                                    </div>
                                         
                                 ))}
                     </ul>

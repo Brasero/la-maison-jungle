@@ -5,6 +5,11 @@
     max-width: 200px;
 }
 
+.lmj-cart-item {
+    display: flex;
+    justify-content: space-between;
+}
+
 .lmj-cart-open-btn {
     border: none;
     background: none;
@@ -19,13 +24,12 @@
 .lmj-cart-close-btn {
     border: none;
     background: none;
-    color: white;
+    color: rgb(237, 20, 20);
     padding: unset;
     margin-left: auto;
-    margin-right: 100px;
-    font-size: 16px;
+    font-size: 26px;
     position: relative;
-    left: 82%;
+    left: 100%;
 }
 
 .lmj-cart-fill-btn {
@@ -42,12 +46,26 @@
 
 .lmj-cart-outline-btn {
 
-    background: none;
-    border: 1px solid white;
+    background: rgb(237, 20, 20);
+    border: none;
     color: white;
     border-radius: 15px;
     padding: 10px;
     margin-right: 10px;
     cursor: pointer;
     font-weight: 600;
+}
+
+.lmj-cart-trash-btn {
+
+    background: rgb(237, 20, 20);
+    border: none;
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 10px;
+    max-height: 25px;
 }
