@@ -36,10 +36,10 @@ function ShoppingList({ cart, updateCart }) {
             <div className="lmj-shopping-list">
                     <Categories selectCat={cat} setCat={setCat} />
                     <ul className="lmj-plant-list">
-                                {cat === "" ? (plantList.map(({ id, cover, name, water, light, price, }) => (
+                                {cat === "" ? (plantList.map(({ id, cover, name, water, light, price }) => (
                                     
                                     <div key={id}>
-                                        <PlantItem cover={cover} name={name} water={water} light={light} />
+                                        <PlantItem cover={cover} name={name} water={water} light={light} price={price} />
                                         <button onClick={() => addToCart(name, price)}>Ajouter</button>
                                     </div>
                                         
@@ -47,7 +47,7 @@ function ShoppingList({ cart, updateCart }) {
                                     plantList.filter((plant) => plant.category === cat).map(({ id, cover, name, water, light, price }) => (
 
                                         <div key={id}>
-                                            <PlantItem cover={cover} name={name} water={water} light={light} />
+                                            <PlantItem cover={cover} name={name} water={water} light={light} price={price} />
                                             <button onClick={() => addToCart(name, price)}>Ajouter</button>
                                         </div>
                                     ))

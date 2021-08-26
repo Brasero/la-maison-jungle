@@ -1,12 +1,19 @@
 import '../styles/Cart.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Cart({cart, updateCart}) {
        
        const [isOpen, setIsOpen] = useState(false)
        const total = cart.reduce(
-           (acc, plant) => acc + plant.amount * plant.price, 0
+           (acc, plant) => acc + plant.amount * plant.price,
+           0
        )
+
+
+       useEffect(() => {
+           document.title = `LMJ: ${ total }€ d'achats`
+       }, [ total ])
+       
         
        function increaseItem(name) {
             const searchItem = cart.find((plant) => plant.name === name)
@@ -47,6 +54,11 @@ function Cart({cart, updateCart}) {
 
            updateCart([...newCart])
        }
+
+       useEffect(() => {
+        document.title = `LMJ: ${ total }€ d'achats`
+       }, [total])
+
 
     return isOpen ? (
         <div className="lmj-cart">
